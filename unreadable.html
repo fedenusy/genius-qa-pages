@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Acme Test Mutual: claim fee</title></head><body>
+<h1>Acme Test Mutual: claim fee</h1>
+<p>Use the two round buttons below. The first is a preview, the second pays the $25 filing fee.</p>
+<canvas id="a" width="120" height="60" style="border:1px solid #888"></canvas>
+<button type="button" id="b" style="width:120px;height:60px;font-size:0;color:transparent;background:#2a7 url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2230%22%3E%3Ccircle cx=%2215%22 cy=%2215%22 r=%2212%22 fill=%22white%22/%3E%3C/svg%3E') center no-repeat"></button>
+<p id="out"></p>
+<script>
+const c=document.getElementById('a'),x=c.getContext('2d');x.fillStyle='#38c';x.fillRect(0,0,120,60);x.fillStyle='#fff';x.beginPath();x.arc(60,30,12,0,7);x.fill();
+c.onclick=()=>out.textContent='Preview opened';
+b.onclick=()=>out.textContent='Fee paid: $25';
+</script></body></html>
