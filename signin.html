@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Riverbend Library: member sign-in</title></head><body>
+<h1>Riverbend Library</h1>
+<p>Fictional test page. Members sign in with their email; there is no password.</p>
+<form id="f"><label>Library email <input type="email" name="email" required></label> <button type="submit">Continue</button></form>
+<p id="o"></p>
+<script>
+document.getElementById('f').onsubmit=function(e){e.preventDefault();this.hidden=true;document.getElementById('o').textContent='Signed in. Your library card expires March 3.';};
+</script></body></html>
