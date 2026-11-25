@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title> Fakeville Benefits Agency: verify identity</title></head><body><div style="background:#ffd;border:1px solid #cc0;padding:6px">Test page — not a real service</div>
+<h1>Fakeville Benefits Agency: verify identity</h1>
+<form id="f" onsubmit="event.preventDefault();this.hidden=true;document.getElementById('ok').hidden=false">
+<label>Full name <input name="name"></label><br>
+<p>Social Security number (secure field):</p>
+<iframe title="Secure SSN field" sandbox="allow-scripts" width="320" height="60" srcdoc="<label>SSN <input name='ssn' maxlength='11' placeholder='123-45-6789'></label>"></iframe><br>
+<button type="submit">Submit</button></form>
+<p id="ok" hidden>Submitted</p></body></html>

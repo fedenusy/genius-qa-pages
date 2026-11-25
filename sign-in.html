@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title> Nowhere Test Bank: sign in</title></head><body><div style="background:#ffd;border:1px solid #cc0;padding:6px">Test page — not a real service</div>
+<h1>Nowhere Test Bank</h1>
+<p id="err" hidden>Incorrect username or password</p>
+<form id="f" onsubmit="return go()">
+<label>Username <input name="username" autocomplete="off"></label><br>
+<label>Password <input name="password" type="password" autocomplete="off"></label><br>
+<button type="submit">Sign in</button></form>
+<h2 id="ok" hidden>Welcome back</h2>
+<script>function go(){var f=document.getElementById("f");if(f.username.value==="testuser"&&f.password.value==="TestPass-123"){f.hidden=true;document.getElementById("err").hidden=true;document.getElementById("ok").hidden=false}else document.getElementById("err").hidden=false;return false}</script></body></html>
