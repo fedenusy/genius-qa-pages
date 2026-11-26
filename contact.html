@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Lakeshore Library: contact details</title></head>
+<body>
+<p>Test page — not a real service</p>
+<h2>Lakeshore Library: update a patron's contact details</h2>
+<form id="f" onsubmit="return saveContact()">
+<label>Patron name <input name="patron" required></label><br>
+<label>Email address <input name="email" type="email" required></label><br>
+<label>Phone number <input name="phone" required></label><br>
+<label>Street address <input name="street" required></label><br>
+<label>City <input name="city" required></label><br>
+<label>ZIP code <input name="zip" required></label><br>
+<button type="submit">Save contact details</button>
+</form>
+<h2 id="ok" hidden>Contact details saved</h2>
+<script>
+function saveContact(){document.getElementById("f").hidden=true;document.getElementById("ok").hidden=false;return false}
+</script>
+</body>
+</html>
