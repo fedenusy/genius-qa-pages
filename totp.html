@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nowhere Test Credit Union: sign in</title></head><body><div style="background:#ffd;border:1px solid #cc0;padding:6px">Test page — not a real service</div>
+<h1>Nowhere Test Credit Union</h1>
+<p id="err" hidden>Incorrect username or password</p>
+<form id="f" onsubmit="return go()">
+<label>Username <input name="username" autocomplete="off"></label><br>
+<label>Password <input name="password" type="password" autocomplete="off"></label><br>
+<button type="submit">Sign in</button></form>
+<form id="c" hidden onsubmit="return code()">
+<p>Enter the 6-digit code from your authenticator app.</p>
+<p id="cerr" hidden>Incorrect code</p>
+<label>Authenticator code <input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6"></label><br>
+<button type="submit">Verify</button></form>
+<h2 id="ok" hidden>Welcome back</h2>
+<script>
+function go(){var f=document.getElementById("f");if(f.username.value==="testuser"&&f.password.value==="TestPass-123"){f.hidden=true;document.getElementById("err").hidden=true;document.getElementById("c").hidden=false}else document.getElementById("err").hidden=false;return false}
+function b32(s){var a="ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",bits="",out=[];s=s.replace(/=+$/,"").toUpperCase();for(var i=0;i<s.length;i++){bits+=a.indexOf(s[i]).toString(2).padStart(5,"0")}for(var j=0;j+8<=bits.length;j+=8)out.push(parseInt(bits.substr(j,8),2));return new Uint8Array(out)}
+async function totp(step){var k=await crypto.subtle.importKey("raw",b32("JBSWY3DPEHPK3PXP"),{name:"HMAC",hash:"SHA-1"},false,["sign"]);var m=new ArrayBuffer(8),v=new DataView(m);v.setUint32(4,step);var h=new Uint8Array(await crypto.subtle.sign("HMAC",k,m));var o=h[19]&15;var n=((h[o]&127)<<24)|(h[o+1]<<16)|(h[o+2]<<8)|h[o+3];return String(n%1000000).padStart(6,"0")}
+function code(){var c=document.getElementById("c"),t=Math.floor(Date.now()/30000),x=c.code.value.trim();Promise.all([totp(t-1),totp(t),totp(t+1)]).then(function(r){if(r.indexOf(x)>=0){c.hidden=true;document.getElementById("ok").hidden=false}else document.getElementById("cerr").hidden=false});return false}
+</script></body></html>
